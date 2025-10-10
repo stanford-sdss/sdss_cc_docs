@@ -33,5 +33,5 @@ A quick guide to running your first job or starting your first interactive insta
 ## Contribute to Our Documentation
 Do you have a neat use case or a cool way that you use serc that you would like to show others how to do? Contribution Guidelines here
 
-Subsection: Please Cite Us
+## Please Cite Us
 Acknowledgements Quote

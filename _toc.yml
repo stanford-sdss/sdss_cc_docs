@@ -1,11 +1,10 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
-root: intro
+root: docs/home/home
+
 chapters:
-- file: gpus
-  sections:
-  - file: path/to/chapter2/section1
-- file: notebooks
-- file: markdown-notebooks
+  - file: docs/guidelines/guidelines.md
+  - file: docs/oak-start/oak-start.md
+  - file: docs/serc-start/serc-start.md
+  - file: docs/user-guides/user-guides.md
+  - file: docs/cite-us/
+  - file: docs/contribute/

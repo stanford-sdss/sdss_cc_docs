@@ -11,7 +11,6 @@ Our mission is to advance research and scholarship by providing the SDSS communi
 ---
 
 ::::{grid} 1 1 2 2
-:gutter: 3
 
 :::{grid-item-card} 🚀 Getting Started
 New to our resources? Start here to get your accounts set up and learn the basics of our high-performance computing (HPC) environments.

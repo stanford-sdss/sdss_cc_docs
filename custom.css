@@ -1,0 +1,83 @@
+/*
+ * Stanford Identity color overrides for SDSS-CC Technical Documentation
+ *
+ * Primary:   Cardinal Red  #8C1515  (Stanford official, PMS 201 C)
+ * Hover:     Cardinal Dark #820000
+ * Secondary: Palo Alto     #175E54  (accent, fits Doerr School of Sustainability)
+ * Neutrals:  Black #2E2D29  Cool Grey #53565A  Fog #DAD7CB
+ */
+
+/* ── Links ─────────────────────────────────────────────────── */
+a.link {
+  color: #8c1515;
+}
+a.link:hover,
+a.link:active {
+  color: #820000;
+}
+
+/* ── Sidebar / TOC navigation ───────────────────────────────── */
+.myst-toc-item.active {
+  color: #8c1515;
+  background-color: rgba(140, 21, 21, 0.07);
+}
+.myst-toc-item:hover:not(.active) {
+  background-color: rgba(140, 21, 21, 0.05);
+}
+/* Replace the default blue focus outline on TOC items */
+.myst-toc-item:focus {
+  outline-color: rgba(140, 21, 21, 0.4);
+}
+
+/* ── Search bar ─────────────────────────────────────────────── */
+/* Override hover:border-blue-500 and hover:ring-blue-500 */
+.myst-search-bar:hover {
+  border-color: #8c1515 !important;
+  --tw-ring-color: rgba(140, 21, 21, 0.5) !important;
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.myst-card {
+  border-top: 3px solid transparent;
+  transition: border-color 0.15s ease;
+}
+.myst-card:hover {
+  border-top-color: #8c1515;
+}
+.myst-card:hover .myst-card-title {
+  color: #8c1515;
+}
+
+/* ── Top navigation — Cardinal Red bottom accent bar ────────── */
+.myst-top-nav {
+  border-bottom: 2px solid #8c1515;
+}
+
+/* ── "Made with MyST" footer link ───────────────────────────── */
+.myst-made-with-myst:hover {
+  color: #8c1515 !important;
+}
+
+/* ── Dark mode compatibility ────────────────────────────────── */
+.dark .myst-toc-item.active {
+  color: #b83a4b;
+  background-color: rgba(184, 58, 75, 0.12);
+}
+.dark .myst-toc-item:hover:not(.active) {
+  background-color: rgba(184, 58, 75, 0.07);
+}
+.dark a.link {
+  color: #b83a4b;
+}
+.dark a.link:hover {
+  color: #e07070;
+}
+.dark .myst-card:hover {
+  border-top-color: #b83a4b;
+}
+.dark .myst-card:hover .myst-card-title {
+  color: #b83a4b;
+}
+.dark .myst-top-nav {
+  border-bottom-color: #820000;
+}

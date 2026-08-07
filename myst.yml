@@ -15,5 +15,6 @@ site:
   template: book-theme
   options:
     style: ./custom.css
+    logo: assets/sdss-cc-logo.png
+    logo_text: Stanford Doerr Center for Computation
   #   favicon: favicon.ico
-  #   logo: site_logo.png

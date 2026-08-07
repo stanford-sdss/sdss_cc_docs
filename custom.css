@@ -48,6 +48,16 @@ a.link:active {
   color: #8c1515;
 }
 
+/* ── Logo — constrain height to fit the 60px navbar ────────── */
+.myst-home-link img {
+  height: 36px;
+  width: auto;
+}
+/* Hide the redundant logo_text span — the wordmark is in the image */
+.myst-home-link span {
+  display: none;
+}
+
 /* ── Top navigation — Cardinal Red bottom accent bar ────────── */
 .myst-top-nav {
   border-bottom: 2px solid #8c1515;

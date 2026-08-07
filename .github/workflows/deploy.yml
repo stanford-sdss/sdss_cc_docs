@@ -35,6 +35,8 @@ jobs:
 
       # Build the book
       - name: Build the book
+        env:
+          BASE_URL: /${{ github.event.repository.name }}
         run: |
           myst build --html
 

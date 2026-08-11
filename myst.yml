@@ -10,7 +10,17 @@ project:
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   toc:
     - file: index.md
-      title: Home Page
+      title: Home
+    - file: getting-started.md
+      title: Getting Started
+    - file: community-guidelines.md
+      title: Community Guidelines
+    - file: resources.md
+      title: Resources
+    - file: tutorials.md
+      title: Tutorials
+    - file: get-in-touch.md
+      title: Get In Touch
 site:
   template: book-theme
   options:

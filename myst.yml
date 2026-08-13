@@ -47,5 +47,6 @@ site:
   options:
     style: ./custom.css
     logo: assets/sdss-cc-logo.png
+    logo_dark: assets/sdss-cc-logo-dark.png
     logo_text: Stanford Doerr Center for Computation
   #   favicon: favicon.ico

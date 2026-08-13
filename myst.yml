@@ -17,6 +17,27 @@ project:
       title: Community Guidelines
     - file: resources.md
       title: Resources
+      children:
+        - file: compute/compute.md
+          title: Compute
+          children:
+            - file: compute/sherlock.md
+              title: Sherlock
+            - file: compute/cloud-resources.md
+              title: Cloud Resources
+            - file: compute/national-lab-resources.md
+              title: National Lab Resources
+        - file: data/data.md
+          title: Data
+          children:
+            - file: data/oak.md
+              title: Oak
+            - file: data/elm.md
+              title: Elm
+            - file: data/stanford-digital-repository.md
+              title: Stanford Digital Repository
+            - file: data/redivis.md
+              title: Redivis
     - file: tutorials.md
       title: Tutorials
     - file: get-in-touch.md

@@ -50,7 +50,7 @@ a.link:active {
 
 /* ── Logo — constrain height to fit the 60px navbar ────────── */
 .myst-home-link img {
-  height: 36px;
+  height: 56px;
   width: auto;
 }
 /* Hide the redundant logo_text span — the wordmark is in the image */

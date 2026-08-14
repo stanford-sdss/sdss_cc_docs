@@ -14,9 +14,11 @@ project:
     - file: getting-started.md
       title: Getting Started
     - file: community-guidelines.md
+      title: SERC Resources
+    - file: serc-resources.md
       title: Community Guidelines
     - file: resources.md
-      title: Resources
+      title: Services 
       children:
         - file: compute/compute.md
           title: Compute

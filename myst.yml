@@ -13,9 +13,9 @@ project:
       title: Home
     - file: getting-started.md
       title: Getting Started
-    - file: community-guidelines.md
-      title: SERC Resources
     - file: serc-resources.md
+      title: SERC Resources
+    - file: community-guidelines.md
       title: Community Guidelines
     - file: resources.md
       title: Services 

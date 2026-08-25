@@ -18,7 +18,7 @@ project:
     - file: community-guidelines.md
       title: Community Guidelines
     - file: resources.md
-      title: Services 
+      title: Services
       children:
         - file: compute/compute.md
           title: Compute
@@ -44,6 +44,8 @@ project:
       title: Tutorials
     - file: get-in-touch.md
       title: Get In Touch
+    - file: acknowledgement.md
+      title: Acknowledgement
 site:
   template: book-theme
   options:

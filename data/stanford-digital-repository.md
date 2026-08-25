@@ -8,8 +8,4 @@ The [Stanford Digital Repository (SDR)](https://sdr.stanford.edu) is a storage p
 
 ## Depositing Data
 
-Content coming soon.
-
-## Getting a DOI
-
-Content coming soon.
+Depositing data is very easy!  Stanford Libraries has compiled [a list of tutorials on SDR at this page](https://sdr.library.stanford.edu/tutorial-videos) which explain many different facets of depositing data.

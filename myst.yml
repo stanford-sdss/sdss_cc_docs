@@ -42,6 +42,9 @@ project:
               title: Redivis
     - file: tutorials.md
       title: Tutorials
+      children:
+        - file: tutorials/sherlock_storage.md
+          title: Choosing a Storage Space on Sherlock
     - file: get-in-touch.md
       title: Get In Touch
     - file: acknowledgement.md

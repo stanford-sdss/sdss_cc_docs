@@ -10,14 +10,43 @@ Sherlock offers several different storage spaces, each with different capacity, 
 
 Sherlock's available storage options are:
 
-| Space | Capacity | Notes |
-| --- | --- | --- |
-| `$HOME` | 15GB | Private to your user. Be careful not to fill it! |
-| `$GROUP_HOME` | 1TB | Shared space for your group |
-| `$OAK` | "Cheap and deep" | For large files and backups |
-| `$SCRATCH` | 100TB per user | Purges files older than 90 days |
-| `$GROUP_SCRATCH` | 100TB shared | Purges files older than 90 days |
-| `$L_SCRATCH` | 100s of GB to a few TB | Local to the active compute node. Deletes when the job ends |
+::::{grid} 1 1 3 3
+
+:::{grid-item-card} `$HOME`
+15GB
+
+Private to your user. Be careful not to fill it!
+:::
+
+:::{grid-item-card} `$GROUP_HOME`
+1TB of shared space for your group
+:::
+
+:::{grid-item-card} `$OAK`
+"Cheap and deep"
+
+For large files and backups
+:::
+
+:::{grid-item-card} `$SCRATCH`
+100TB for each user
+
+Purges files older than 90 days
+:::
+
+:::{grid-item-card} `$GROUP_SCRATCH`
+100TB of shared scratch space
+
+Purges files older than 90 days
+:::
+
+:::{grid-item-card} `$L_SCRATCH`
+Scratch local to the active compute node, deletes when job ends
+
+Size varies from 100s of GB to a few TB
+:::
+
+::::
 
 ## An Analogy: HPC as Cooking
 

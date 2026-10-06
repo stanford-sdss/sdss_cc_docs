@@ -11,8 +11,19 @@ project:
   toc:
     - file: index.md
       title: Home
+    - file: about.md
+      title: About
     - file: getting-started.md
       title: Getting Started
+      children:
+        - file: reference/getting-started/general-requirements.md
+          title: Account, VPN, and SSH setup
+        - file: reference/getting-started/sherlock-access.md
+          title: Connect to Sherlock
+        - file: reference/getting-started/oak-storage.md
+          title: Access Oak storage
+        - file: reference/getting-started/grid-lab.md
+          title: GRID Lab
     - file: serc-resources.md
       title: SERC Resources
     - file: community-guidelines.md
@@ -20,11 +31,30 @@ project:
     - file: resources.md
       title: Services
       children:
+        - file: reference/resources-overview.md
+          title: Resource overview
         - file: compute/compute.md
           title: Compute
           children:
             - file: compute/sherlock.md
               title: Sherlock
+              children:
+                - file: reference/sherlock/serc-resources.md
+                  title: SERC resources
+                - file: reference/sherlock/software-and-modules.md
+                  title: Software and modules
+                - file: reference/sherlock/slurm-basics.md
+                  title: SLURM basics
+                - file: reference/sherlock/slurm-arrays.md
+                  title: SLURM job arrays
+                - file: reference/sherlock/filesystems.md
+                  title: Filesystems
+                - file: reference/sherlock/data-transfer.md
+                  title: Data transfer
+                - file: reference/sherlock/job-resources.md
+                  title: Job resources
+                - file: reference/sherlock/x11-forwarding.md
+                  title: X11 forwarding
             - file: compute/cloud-resources.md
               title: Cloud Resources
             - file: compute/national-lab-resources.md
@@ -45,6 +75,38 @@ project:
       children:
         - file: tutorials/sherlock_storage.md
           title: Choosing a Storage Space on Sherlock
+        - file: reference/software/python-on-sherlock.md
+          title: Python on Sherlock
+        - file: reference/software/jupyter-notebooks.md
+          title: Jupyter Notebooks on HPC
+        - file: reference/software/cmg-basics.md
+          title: CMG
+        - file: reference/software/abaqus.md
+          title: ABAQUS
+        - file: reference/software/cesm2.md
+          title: CESM2
+        - file: reference/data/h5py-examples.md
+          title: HDF5 image examples
+        - file: reference/data/hdf5-io-performance.md
+          title: HDF5 I/O performance
+        - file: reference/data/dicom-hdf5.md
+          title: DICOM and HDF5
+        - file: reference/historical/rcf.md
+          title: RCF (retired)
+        - file: reference/historical/mazama.md
+          title: Mazama (retired)
+        - file: reference/historical/mazama-ondemand.md
+          title: Mazama OnDemand (retired)
+        - file: reference/historical/mazama-transition.md
+          title: Mazama transition notes (historical)
+        - file: reference/historical/mazama-status.md
+          title: Mazama status (historical)
+        - file: reference/historical/oak-quota-error.md
+          title: Oak quota troubleshooting (historical)
+        - file: reference/historical/sdss-hpc-resources-2022.md
+          title: SDSS HPC resources (2022 archive)
+    - file: news.md
+      title: News archive
     - file: get-in-touch.md
       title: Get In Touch
     - file: acknowledgement.md

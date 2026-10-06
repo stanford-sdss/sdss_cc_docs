@@ -48,6 +48,20 @@ a.link:active {
   color: #8c1515;
 }
 
+/* ── People cards ──────────────────────────────────────────── */
+.myst-card img {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0.5rem auto 1rem;
+  border: 3px solid #dad7cb;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.dark .myst-card img {
+  border-color: #53565a;
+}
+
 /* ── Logo — constrain height to fit the 60px navbar ────────── */
 .myst-home-link img {
   height: 56px !important;

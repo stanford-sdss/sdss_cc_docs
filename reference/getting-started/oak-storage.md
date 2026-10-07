@@ -4,7 +4,7 @@ title: Getting Started -- Oak
 # Getting Started: Oak
 
 ## What is *oak*?
-In a word, *oak* is storage. Lots of it. *Oak* is a LUSTRE filesystem -- designed principally to be used with *Sherlock*, but accessible from other platforms as well. Ask your PI if they have a group space on *oak*! If not, your group might be eligible for an SDSS provided Oak space, and you may also be eligible to use the SDSS-CC shared Oak space. 
+In a word, *oak* is storage. Lots of it. *Oak* is a LUSTRE filesystem -- designed principally to be used with *Sherlock*, but accessible from other platforms as well. Ask your PI if they have a group space on *oak*! If not, your group might be eligible for an SDSS provided Oak space.
 
 If you require Oak storege, or need to increase your storage allocation, please [contact the SDSS-
 CC management team](/get-in-touch) to discuss options. 
@@ -14,23 +14,14 @@ CC management team](/get-in-touch) to discuss options.
 The *oak* filesystem is automatically mounted for *Sherlock* sessions. Group spaces can be found at:
 - `/oak/stanford/groups/${pi_sunet}`
 
-The SDSS shared space is:
-- `/oak/stanford/schools/ees/${pi_group}`
-
 For convenience, a symbolic link can be made -- for example, in your `$HOME` directory, like
 
 ```
-$ ln -s /oak/stanford/schools/ees/${pi_group} ~/oak_sdss
+$ ln -s /oak/stanford/groups/${pi_sunet} ~/oak_group
 ```
 
 ### Connecting your laptop (and other systems too):
-This can be mounted on your local system (or a remote HPC) via an Oak data transfer node (DTN), for example :
-
-```
-sshfs sunetid@oak-dtn.stanford.edu:/oak/stanford/schools/ees/${pi_SUNetID} ~/${my_ees_mount_point} -o cache=no -o nolocalcaches -o volname=oak-sshfs -o defer_permissions
-```
-
-Similarly, for private Oak spaces:
+Oak can be mounted on your local system (or a remote HPC) via an Oak data transfer node (DTN), for example:
 
 ```
 sshfs sunetid@oak-dtn.stanford.edu:/oak/stanford/groups/${pi_SUNetID} ~/${my_group_mount_point} -o cache=no -o nolocalcaches -o volname=oak-sshfs -o defer_permissions
@@ -48,7 +39,7 @@ Access to Oak spaces is controlled via Stanford Workgroups:
 
 [https://workgroup.stanford.edu](https://workgroup.stanford.edu)
 
-PI group Oak spaces are associated with a workroup named, `oak:{PI_SUNetID}`, which associates with a POSIX group (on Sherlock and Oak), `oak_{PI_SUNetID}`. Oak "projects" and other collaborations are associated with similarly named workgroups and POSIX groups. Starting in Spring 2023, Workgroups management will be extended to some or all PI groups in the SDSS-CC shared Oak space, ie `/oak/stanford/schools/ees/${pi_SUNetID}`, though subdirectories in the shared space will still be restricted only by the shared SDSS-CC data volume and inode quotas.
+PI group Oak spaces are associated with a workroup named, `oak:{PI_SUNetID}`, which associates with a POSIX group (on Sherlock and Oak), `oak_{PI_SUNetID}`. Oak "projects" and other collaborations are associated with similarly named workgroups and POSIX groups.
 
 PI Subdirectories will be initialized to include a PI's Sherlock group, with the PI designated as an administrator, plus possibly one or more SDSS-CC associated administrators. Subsequently, adding and removing members (providing or removing access) is the perogitave of the PI, or another workgroup administrator. Note that the PI (or other administrator) can upgrade existing or add new members as administrators, so membership administration can be delegated to one or more team members.
 
@@ -59,9 +50,9 @@ PI Subdirectories will be initialized to include a PI's Sherlock group, with the
 
 ## Access Control Lists (ACLs):
 
-For both group and school-wide Oak spaces, file and directory access permissions can be further managed for privacy or collaboration by modifying Access Control Lists (ACLs). Put plainly, ACLs are exactly what they sound like -- lists of permission rules for users and groups. They can be defined for individual files and directories to provide or revoke permissions to groups (as defined on the Oak system) or individual users. 
+For Oak group spaces, file and directory access permissions can be further managed for privacy or collaboration by modifying Access Control Lists (ACLs). Put plainly, ACLs are exactly what they sound like -- lists of permission rules for users and groups. They can be defined for individual files and directories to provide or revoke permissions to groups (as defined on the Oak system) or individual users. 
 
-By default, all users in an oak-space group will have full acess to content in that space. Specifically, this means that for a PI group space, all members of that PI group, or in the `EES` shared space all memers of the `oak_s-ees` group will have full read-write-execute (`rwx`) access, unless ACLs are defined otherwise. In some cases, SDSS-CC administrators will create private directories for PI groups, within the `ees` space (ie, `/oak/stanford/schools/ees/${pi_group}`). These folders will, to the best of the administrator's knowledge at the time, provide full `rwx` to members of that PI's team and fully restrict access to all others; those permissions will be inherited by subsequent files and subdirectories within that space.
+By default, all users in an oak-space group will have full acess to content in that space. Specifically, this means that for a PI group space, all members of that PI group will have full read-write-execute (`rwx`) access, unless ACLs are defined otherwise.
 
 ACLs can be viewed using the `getfacl` command and modified by the `owner` of a file or folder using `setfacl`. A good reeference for these commands can be found at:
 
@@ -76,7 +67,7 @@ Note that it may be necessary to also add `+x` permission _up_ the directory tre
 
 - Change to your personal directory, in your PI grup folder; create a directory for collaboration.
 ```
-$ cd /oak/stanford/schools/ees/${pi_group}/${USER}
+$ cd /oak/stanford/groups/${pi_sunet}/${USER}
 $ mkdir -p projects/my_shared_project
 ```
 
@@ -112,7 +103,7 @@ $ getfacl my_shred_project
 
 ### ACL Example 2: Reset all ACLs to match the parent directory
 
-This example addresses common problems when team members are added or removed from a group, or for data that are migrated from the shred `/oak/.../ees` space to a group allocataion. Particularly in the latter case, the new `group:oak_{pi}` ACE may not be applied to a subdirectory after it is moved to its new location, and the ACLs may be messy -- cluttered many `user:` entries that, besides being messy, may actually confilct with the intended permissions bahavior.
+This example addresses common problems when team members are added or removed from a group, or for data that are moved into a group allocation from another location. In the latter case, the new `group:oak_{pi}` ACE may not be applied to a subdirectory after it is moved to its new location, and the ACLs may be messy -- cluttered many `user:` entries that, besides being messy, may actually confilct with the intended permissions bahavior.
 
 One option might be to remove individual user entries and add the group ACE, eg.
 ```

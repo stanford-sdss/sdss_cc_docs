@@ -23,7 +23,7 @@ Limit yourself to **2 GPUs** and **32 CPUs** per interactive session.
 ## All Sessions
 
 :::{note}
-Please request the **40GB GPUs** when possible. This leaves the larger GPU memory tiers available for workloads that genuinely require them.
+Please request the **40GB GPUs** when possible. This leaves the larger GPU memory tiers available for workloads that require them. See [Requesting 40GB GPUs with SLURM Constraints](tutorials/gpu_mem_constraints.md) for how to do this.
 :::
 
 ## Batch Jobs

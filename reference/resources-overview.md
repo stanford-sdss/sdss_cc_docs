@@ -24,22 +24,250 @@ The Sherlock cluster includes a broad, capable variety of computing tools. It is
 
 - Traditional HPC "batch" computing, managed by SLURM
 - Interactive sessions, including multi-core instances
-- **`serc` partition:**
-    - 128 x SH4_CBASE: 24 CPUs (1 x AMD Epyc 8224p), 192 GB RAM
-    - 16 x SH4_CPERF: 64 CPUs (2 x AMD Epyc 9384X), 384 GB
-    - 4 x SH4_CSCALE: 256 CPUs (2 xy AMD Epyc 9754), 1.5 TB
-    - 1 x SH4_G8TF64: 8 NVIDIA H100 GPUs, 64 CPUs
-    - 200 x SH3_CBASE 32 core (AMD Epyc 7502), 256 GB RAM
-    - 8 x SH3_CPERF 128 core (AMD Epyc 7742) 1024 GB RAM
-    - ~~24 x 24 core (Intel Skylake), 192/384 GB RAM~~  (To be decommissioned some time in 2025) 
-    - 10 x 8  NVIDIA Tesla A100 GPUs, 128 CPU cores (AMD Epyc 7662), 1024 GB RAM
-    - 2  x 4  NVIDIA Tesla A100 GPUs, 64 CPU cores (AMD Epyc), 512 GB RAM
-    - ~~2 x 4 NVIDIA Tesla V100 GPUs, 24 CPU cores (Intel Skylake), 192GB RAM~~  (To be decommissioned some time in 2025)
 - Sherlock *owners* partition: Access to idle reseroudes owned by other PI groups.
 - Public partitions: `normal`, `gpu`, `bigmem`, `dev`
 - Oak 1.35PB storage:  `/oak/stanford/schools/ees/{PI SUNetID}`
 -  ssh (requires 2-factor auth):
     - ```$ ssh sherlock.stanford.edu```
+
+### Explore the `serc` node types
+
+Use the explorer below to browse the hardware in the `serc` partition. Filter by category, CPU count, RAM, or GPU memory, then select a node type to see what it's good for and the SLURM `--constraint` to request it. For GPU jobs, please use the 40 GB GPUs when possible. See [Requesting 40GB GPUs with SLURM Constraints](../tutorials/gpu_mem_constraints.md).
+
+:::{anywidget} ../widgets/node-explorer.mjs
+{
+  "nodes": [
+    {
+      "name": "SH3_CBASE",
+      "category": "general",
+      "count": 104,
+      "cpus": 32,
+      "cpu_model": "1 × AMD EPYC 7502",
+      "ram_gb": 256,
+      "constraint": "CLASS:SH3_CBASE",
+      "description": "Excellent general-purpose machines, well suited to MPI and OpenMP parallel jobs.",
+      "best_for": [
+        "MPI jobs",
+        "OpenMP (threaded) jobs",
+        "General batch work"
+      ],
+      "caveats": [
+        "SH3_CBASE and SH3_CBASE.1 have slightly different processors. Treat them as different hardware for MPI jobs."
+      ]
+    },
+    {
+      "name": "SH3_CBASE.1",
+      "category": "general",
+      "count": 96,
+      "cpus": 32,
+      "cpu_model": "1 × AMD EPYC 7543",
+      "ram_gb": 256,
+      "constraint": "CLASS:SH3_CBASE.1",
+      "description": "A newer generation of the SH3_CBASE machines (AMD EPYC Milan). Excellent general-purpose nodes for MPI and OpenMP parallel jobs.",
+      "best_for": [
+        "MPI jobs",
+        "OpenMP (threaded) jobs",
+        "General batch work"
+      ],
+      "caveats": [
+        "Slightly different from SH3_CBASE. Keep MPI jobs on one class, e.g. --constraint=\"[CLASS:SH3_CBASE|CLASS:SH3_CBASE.1]\" so all nodes match."
+      ]
+    },
+    {
+      "name": "SH4_CBASE",
+      "category": "general",
+      "count": 128,
+      "cpus": 24,
+      "cpu_model": "1 × AMD EPYC 8224P",
+      "ram_gb": 192,
+      "constraint": "CLASS:SH4_CBASE",
+      "description": "Excellent general-purpose machines, well suited to MPI and OpenMP parallel jobs.",
+      "best_for": [
+        "MPI jobs",
+        "OpenMP (threaded) jobs",
+        "Jobs that need 24 or fewer cores per node"
+      ],
+      "caveats": [
+        "Requests for more than 24 CPUs per task can't run on these nodes."
+      ]
+    },
+    {
+      "name": "SH2 Skylake",
+      "category": "general",
+      "count": 12,
+      "cpus": 24,
+      "cpu_model": "2 × Intel Xeon Gold 5118 (Skylake)",
+      "ram_gb": 384,
+      "constraint": "CPU_GEN:SKX&NO_GPU",
+      "description": "Older Sherlock 2.0 Intel nodes. Still useful for general batch work and codes built for Intel processors.",
+      "best_for": [
+        "General batch work",
+        "Codes compiled for Intel CPUs"
+      ],
+      "caveats": [
+        "Older hardware: slower than the SH3/SH4 nodes.",
+        "These nodes have no CLASS label, so request them by CPU generation."
+      ]
+    },
+    {
+      "name": "SH4_CPERF",
+      "category": "performance",
+      "count": 16,
+      "cpus": 64,
+      "cpu_model": "2 × AMD EPYC 9384X",
+      "ram_gb": 384,
+      "constraint": "CLASS:SH4_CPERF",
+      "description": "High-performance machines for CPU-limited MPI and OpenMP jobs. The 9384X has enough memory bandwidth to run well on all cores.",
+      "best_for": [
+        "Well-optimized, CPU-limited parallel codes",
+        "High-memory-bandwidth OpenMP jobs",
+        "Large MPI jobs"
+      ],
+      "caveats": [
+        "Only 16 nodes, so your job may wait longer in the queue."
+      ]
+    },
+    {
+      "name": "SH3_CPERF",
+      "category": "highcap",
+      "count": 8,
+      "cpus": 128,
+      "cpu_model": "2 × AMD EPYC 7742",
+      "ram_gb": 1024,
+      "constraint": "CLASS:SH3_CPERF",
+      "description": "Lots of cores and memory. Great for interactive work, large-memory jobs, and general compute that isn't CPU-limited.",
+      "best_for": [
+        "Interactive sessions",
+        "Large-memory jobs",
+        "Work that isn't CPU-limited"
+      ],
+      "caveats": [
+        "Memory-bandwidth limited: performance levels off around 60–70 cores.",
+        "Not ideal for massive OpenMP or large MPI jobs."
+      ]
+    },
+    {
+      "name": "SH4_CSCALE",
+      "category": "highcap",
+      "count": 4,
+      "cpus": 256,
+      "cpu_model": "2 × AMD EPYC 9754",
+      "ram_gb": 1536,
+      "constraint": "CLASS:SH4_CSCALE",
+      "description": "Very high core count and 1.5 TB of RAM. Excellent for interactive work, large-memory jobs, and tasks that aren't CPU-limited.",
+      "best_for": [
+        "Interactive sessions",
+        "Very large-memory jobs",
+        "Work that isn't CPU-limited"
+      ],
+      "caveats": [
+        "Memory-bandwidth limited, so parallel performance saturates fairly quickly."
+      ]
+    },
+    {
+      "name": "SH3_G8TF64 (40 GB)",
+      "category": "gpu",
+      "count": 6,
+      "cpus": 128,
+      "cpu_model": "2 × AMD EPYC 7662",
+      "ram_gb": 1024,
+      "gpus": 8,
+      "gpu_model": "NVIDIA A100 SXM4",
+      "gpu_mem_gb": 40,
+      "constraint": "GPU_MEM:40GB",
+      "recommended": true,
+      "description": "A100 nodes with 40 GB GPUs. Please use these whenever your job fits in 40 GB of GPU memory, so the 80 GB GPUs stay free for jobs that need them.",
+      "best_for": [
+        "Most GPU jobs: inference, small/medium model training, scientific GPU codes",
+        "Interactive GPU development"
+      ],
+      "caveats": [
+        "Use --ntasks=1 for multi-GPU jobs unless your code supports multi-node runs."
+      ]
+    },
+    {
+      "name": "SH3_G8TF64.1",
+      "category": "gpu",
+      "count": 4,
+      "cpus": 128,
+      "cpu_model": "2 × AMD EPYC 7763",
+      "ram_gb": 1024,
+      "gpus": 8,
+      "gpu_model": "NVIDIA A100 SXM4",
+      "gpu_mem_gb": 80,
+      "constraint": "CLASS:SH3_G8TF64.1",
+      "description": "A100 nodes with eight 80 GB GPUs, for jobs that need more than 40 GB of GPU memory.",
+      "best_for": [
+        "Large models or datasets that don't fit in 40 GB"
+      ],
+      "caveats": [
+        "High demand. Use the 40 GB GPUs when your job fits."
+      ]
+    },
+    {
+      "name": "SH3_G4TF64.1",
+      "category": "gpu",
+      "count": 2,
+      "cpus": 64,
+      "cpu_model": "1 × AMD EPYC 7543",
+      "ram_gb": 512,
+      "gpus": 4,
+      "gpu_model": "NVIDIA A100 SXM4",
+      "gpu_mem_gb": 80,
+      "constraint": "CLASS:SH3_G4TF64.1",
+      "description": "Smaller A100 nodes with four 80 GB GPUs.",
+      "best_for": [
+        "Jobs that need 80 GB GPUs and up to 4 GPUs on one node"
+      ],
+      "caveats": [
+        "Only 2 nodes. Use the 40 GB GPUs when your job fits."
+      ]
+    },
+    {
+      "name": "SH4_G8TF64",
+      "category": "gpu",
+      "count": 1,
+      "cpus": 64,
+      "cpu_model": "2 × Intel Xeon 8462Y+",
+      "ram_gb": 2048,
+      "gpus": 8,
+      "gpu_model": "NVIDIA H100 SXM5",
+      "gpu_mem_gb": 80,
+      "constraint": "CLASS:SH4_G8TF64",
+      "description": "SERC's H100 node: eight 80 GB H100 GPUs and 2 TB of system RAM.",
+      "best_for": [
+        "Large training jobs that benefit from H100 performance"
+      ],
+      "caveats": [
+        "Only 1 node, so expect longer queue times.",
+        "Only 8 CPU cores per GPU."
+      ]
+    },
+    {
+      "name": "SH2 V100",
+      "category": "gpu",
+      "count": 2,
+      "cpus": 24,
+      "cpu_model": "2 × Intel Xeon Gold 5118 (Skylake)",
+      "ram_gb": 191,
+      "gpus": 4,
+      "gpu_model": "NVIDIA V100 PCIe",
+      "gpu_mem_gb": 32,
+      "constraint": "GPU_SKU:V100_PCIE",
+      "description": "Older Sherlock 2.0 GPU nodes with four 32 GB V100 GPUs. Fine for development, testing, and smaller GPU workloads.",
+      "best_for": [
+        "GPU development and testing",
+        "Small models and GPU codes that fit in 32 GB"
+      ],
+      "caveats": [
+        "Older, slower GPUs. Less system RAM per GPU (about 48 GB)."
+      ]
+    }
+  ]
+}
+:::
+
+To list current node features on Sherlock, run `sh_node_feat -p serc`. For more on choosing hardware, see [SERC resources](sherlock/serc-resources.md).
 
 ## Google Cloud Platform (GCP)
 For jobs, projects, and storage not well suited to shared HPC, like Sherlock and Oak, Cloud resources might be available. Google Cloud Platform (GCP) is SDSS's principal Cloud computing provider, and GCP allocations are made on a case-by-case basis and are typically allocated to accommodate:

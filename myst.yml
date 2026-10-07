@@ -73,6 +73,8 @@ project:
       children:
         - file: tutorials/sherlock_storage.md
           title: Choosing a Storage Space on Sherlock
+        - file: tutorials/gpu_mem_constraints.md
+          title: Requesting 40GB GPUs
         - file: reference/software/python-on-sherlock.md
           title: Python on Sherlock
         - file: reference/software/jupyter-notebooks.md

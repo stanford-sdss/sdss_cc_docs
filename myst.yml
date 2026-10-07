@@ -16,8 +16,6 @@ project:
     - file: getting-started.md
       title: Getting Started
       children:
-        - file: reference/getting-started/general-requirements.md
-          title: Account, VPN, and SSH setup
         - file: reference/getting-started/sherlock-access.md
           title: Connect to Sherlock
         - file: reference/getting-started/oak-storage.md

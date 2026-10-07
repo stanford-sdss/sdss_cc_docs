@@ -12,7 +12,7 @@ the CEES-RCF HPC and tool nodes have been decommissioned.
 
 ##  Connecting RCF: SSH and VPN
 Connections to RCF are made via Secure Shell (SHH).  On LInux or MacOS systems, an ssh client is often installed in the default configuration or easily installed using a package manager. 
-For more information, including installing SSH for Windows, see [Installing an SSH client](../getting-started/general-requirements).
+For more information, including installing SSH for Windows, see [Connecting to Sherlock](https://www.sherlock.stanford.edu/docs/getting-started/connecting/).
 
 Most connections to Mazama require being connected to the Stanford VPN:
     - [Stanford VPN Instructions](https://uit.stanford.edu/service/vpn/linux "Stanford VPN")

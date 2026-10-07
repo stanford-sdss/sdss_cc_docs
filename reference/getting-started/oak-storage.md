@@ -24,7 +24,7 @@ $ ln -s /oak/stanford/schools/ees/${pi_group} ~/oak_sdss
 ```
 
 ### Connecting your laptop (and other systems too):
-This can be mounted on your local system (or a remote HPC) via an Oak data transfer node (DTN), for example ([see also](general-requirements#sherlock) ) :
+This can be mounted on your local system (or a remote HPC) via an Oak data transfer node (DTN), for example :
 
 ```
 sshfs sunetid@oak-dtn.stanford.edu:/oak/stanford/schools/ees/${pi_SUNetID} ~/${my_ees_mount_point} -o cache=no -o nolocalcaches -o volname=oak-sshfs -o defer_permissions

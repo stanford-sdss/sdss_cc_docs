@@ -19,7 +19,7 @@ The Mazama platform includes an approximatley 150 node HPC cluster and four tool
 
 ## Connecting to Mazama HPC and Tool Servers: SSH and VPN
 Connections to Mazama are made via Secure Shell (SHH).  On Linux or MacOS systems, an ssh client is often installed in the default configuration or easily installed using a package manager. 
-For more information, including installing SSH for Windows, see [Installing an SSH client](../getting-started/general-requirements).
+For more information, including installing SSH for Windows, see [Connecting to Sherlock](https://www.sherlock.stanford.edu/docs/getting-started/connecting/).
 
 Even on campus, most connections to Mazama require a connection to the Stanford VPN:
 

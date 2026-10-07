@@ -8,12 +8,6 @@ Start here to prepare your computer and gain access to SDSS-CC resources.
 
 ::::{grid} 1 1 2 2
 
-:::{grid-item-card} Account, VPN, and SSH setup
-:link: reference/getting-started/general-requirements
-
-Set up Stanford VPN, two-factor authentication, and an SSH client.
-:::
-
 :::{grid-item-card} Connect to Sherlock
 :link: reference/getting-started/sherlock-access
 

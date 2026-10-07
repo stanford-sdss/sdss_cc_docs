@@ -4,17 +4,8 @@ title: Getting Started -- Sherlock
 
 # Getting Started: Sherlock
 
-
-:::{admonition} Please compute courteously!
-:class: warning
-
-Remember, SERC is a shared resrouce! Please restrict jobs to approximately 300-500 concurrent CPUs per individual.
-:::
-
-
-
 ## SDSS-CC resources on Sherlock
-In addition to the public partitions (or queues), `normal`, `dev`, `gpu`, `bigmem`, and `owners`, SDSS users have access to the large shared `serc` partition. The `serc` partition currenly consists of 232 compute nodes, including more than 9000 CPU-cores, 92 GPU devices, up to 1 TB RAM, and 1.3 PB storage on [oak](oak-storage). Jobs can be run on the `serc` partition by including the SLURM directive `--partition=serc` in `srun`, `sbatch`, and `salloc` commands.
+In addition to the public partitions (or queues), `normal`, `dev`, `gpu`, `bigmem`, and `owners`, SDSS users have access to the large shared `serc` partition. The `serc` partition currently consists of 383 compute nodes, including more than 14,000 CPU-cores and more than 100 GPU devices. Jobs can be run on the `serc` partition by including the SLURM directive `--partition=serc` in `srun`, `sbatch`, and `salloc` commands.
 
 SDSS users may also submit jobs to the `owners` partition. This is a special queue for Sherlock users who own nodes. All unused resources on are placed into the `owners` queue and are available `owners` members to run jobs. However, if the actual owner of one of those resources requests them, any jobs running on those nodes might be *preemted*, or killed, to make them available to the owner. Preempted jobs are given a 30 second warning signal, during which time they can checkpoint -- if they are configured to do so. Preemption is typically uncommon -- a 2020 analysis showed `<3%` of jobs are preempted, but jobs run on the `owners` partition should accomodate for the possibility of preemption.
 
@@ -112,7 +103,7 @@ applicattion. Examples include:
 - Cygwin
 - Putty
 - WSL (Windows Subsystem for Linux)
-- See the [SDSS-CC Sherlock](https://www.sherlock.stanford.edu/docs/getting-started/prerequisites/) documentation for more details
+- See the [Sherlock](https://www.sherlock.stanford.edu/docs/getting-started/prerequisites/) documentation for more details
 
 On Unix, Linux, MacOS, and other *.nix* systems, the ssh client is typically either installed as a standard component or or easily acquired. In most cases, it can be installed using a package manager. For example, in Debian, Ubuntu, and Mint (note: the exact syntax and package names may vary):
 

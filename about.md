@@ -15,7 +15,7 @@ SDSS-CC is guided by faculty directors and faculty representatives from across t
 :::{grid-item-card} Eric Dunham
 ![Eric Dunham](assets/people/eric-dunham.jpg)
 
-**Co-Director**<br>
+**Director**<br>
 Geophysics
 :::
 
@@ -65,20 +65,19 @@ The directors and governance representatives serve as liaisons between research 
 :::{grid-item-card} Mark Yoder
 ![Mark Yoder](assets/people/mark-yoder.png)
 
-**Computing Consultant**<br>
-SRC Support Liaison
+**Research Software Engineer and Computational Scientist**
 :::
 
 :::{grid-item-card} Brian Chivers
 ![Brian Chivers](assets/people/brian-chivers.jpg)
 
-**Data Management Consultant**
+**Research Software Engineer**
 :::
 
 :::{grid-item-card} Brian Tempero
 ![Brian Tempero](assets/people/brian-tempero.jpg)
 
-**Cloud Computing Engineer**
+**HPC System Administrator and Specialist**
 :::
 
 ::::
